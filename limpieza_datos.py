@@ -36,6 +36,7 @@ data.columns = cabecera
 
 # convercion de datos de string a int
 
+# le pasamos a la funcion una lista de strings los cuales uno a uno los va remplazando
 def ConversionCategorizacion(Nombre, Columna, data):
     for i in range (len(Nombre)):
         data[Columna] = data[Columna].replace({Nombre[i]:i})
@@ -49,66 +50,66 @@ data = ConversionCategorizacion(["Male", "Female"], "Sexo", data)
 
 # Causa de muerte
 """ 
-Certain infectious and parasitic diseases
-Intestinal infectious diseases
-Tuberculosis
-Tetanus
-Diphtheria
-Whooping cough
-Meningococcal infection
-Septicaemia
-Acute poliomyelitis
-Measles
-Viral hepatitis
-Human immunodeficiency virus [HIV] disease
-Malaria
-Neoplasms
-Malignant neoplasms
-Malignant neoplasm of lip, oral cavity and pharynx
-Malignant neoplasm of oesophagus
-Malignant neoplasm of stomach
-Malignant neoplasm of colon
-Malignant neoplasm of liver and intrahepatic bile ducts
-Malignant neoplasm of pancreas
-Malignant neoplasm of trachea
-Malignant neoplasm of prostate
-Malignant neoplasm of lymphoid, haematopoietic and related tissue
-Disorders of the blood and blood-forming organs and certain disorders involving the immune mec 
-Anaemias
-Endocrine
-Diabetes mellitus
-Malnutrition
-Mental and behavioural disorders
-Diseases of the nervous system
-Diseases of the circulatory system
-Acute rheumatic fever and chronic rheumatic heart diseases
-Hypertensive diseases
-Ischaemic heart diseases
-Cerebrovascular diseases
-Diseases of arteries, arterioles and capillaries
-Diseases of the respiratory  system
-Influenza
-Pneumonia
-Chronic lower respiratory diseases
-Diseases of the digestive system
-Gastric and duodenal ulcer
-Diseases of the liver
-Diseases of the musculoskeletal system and connective tissue
-Diseases of the genitourinary system
-Disorders of kidney and ureter
-Hyperplasia of prostate
-Certain conditions originating in the perinatal period
-Congenital malformations, deformations and chromosomal abnormalities
-Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified
-External causes
-Accidents
-Transport accidents
-Falls
-Accidental drowning and submersion
-Exposure to smoke, fire and flames
-Accidental poisoning by and exposure to noxious substances
-Intentional self-harm
-Assault
+0 Certain infectious and parasitic diseases
+1 Intestinal infectious diseases
+2 Tuberculosis
+3 Tetanus
+4 Diphtheria
+5 Whooping cough
+6 Meningococcal infection
+7 Septicaemia
+8 Acute poliomyelitis
+9 Measles
+10 Viral hepatitis
+11 Human immunodeficiency virus [HIV] disease
+12 Malaria
+13 Neoplasms
+14 Malignant neoplasms
+15 Malignant neoplasm of lip, oral cavity and pharynx
+16 Malignant neoplasm of oesophagus
+17 Malignant neoplasm of stomach
+18 Malignant neoplasm of colon
+19 Malignant neoplasm of liver and intrahepatic bile ducts
+20 Malignant neoplasm of pancreas
+21 Malignant neoplasm of trachea
+22 Malignant neoplasm of prostate
+23 Malignant neoplasm of lymphoid, haematopoietic and related tissue
+24 Disorders of the blood and blood-forming organs and certain disorders involving the immune mec 
+25 Anaemias
+26 Endocrine
+27 Diabetes mellitus
+28 Malnutrition
+29 Mental and behavioural disorders
+30 Diseases of the nervous system
+31 Diseases of the circulatory system
+32 Acute rheumatic fever and chronic rheumatic heart diseases
+33 Hypertensive diseases
+34 Ischaemic heart diseases
+35 Cerebrovascular diseases
+36 Diseases of arteries, arterioles and capillaries
+37 Diseases of the respiratory  system
+38 Influenza
+39 Pneumonia
+40 Chronic lower respiratory diseases
+41 Diseases of the digestive system
+42 Gastric and duodenal ulcer
+43 Diseases of the liver
+44 Diseases of the musculoskeletal system and connective tissue
+45 Diseases of the genitourinary system
+46 Disorders of kidney and ureter
+47 Hyperplasia of prostate
+48 Certain conditions originating in the perinatal period
+49 Congenital malformations, deformations and chromosomal abnormalities
+50 Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified
+51 External causes
+52 Accidents
+53 Transport accidents
+54 Falls
+55 Accidental drowning and submersion
+56 Exposure to smoke, fire and flames
+57 Accidental poisoning by and exposure to noxious substances
+58 Intentional self-harm
+59 Assault
  """
 
 # Generar rangos de edad
