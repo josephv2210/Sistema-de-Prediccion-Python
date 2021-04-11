@@ -140,3 +140,4 @@ data = ConversionCategorizacion(mat, "Edad", data, flag=False)
 data.to_csv("Data.csv")
 
 print(data)
+#coment
