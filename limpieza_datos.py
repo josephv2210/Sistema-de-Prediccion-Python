@@ -2,6 +2,7 @@
 
 # Borrado de registros inecesarias
 # borramos todos los registros nulos y las filas de la columna total
+# All other diseases, All other external causes, All causes
 
 # Borrado de las columnas inecesarias
 # year
@@ -68,7 +69,6 @@ Hyperplasia of prostate
 Certain conditions originating in the perinatal period
 Congenital malformations, deformations and chromosomal abnormalities
 Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified
-All other diseases
 External causes
 Accidents
 Transport accidents
@@ -78,8 +78,7 @@ Exposure to smoke, fire and flames
 Accidental poisoning by and exposure to noxious substances
 Intentional self-harm
 Assault
-All other external causes
-All causes """
+ """
 
 # Generar rangos de edad
 # 0 0-9,1 10-19,2 20-29, 3 30-39,4 40-49,5 50-59,6 60-69, 7 70-79, 8 80-89, 9 90-mas
