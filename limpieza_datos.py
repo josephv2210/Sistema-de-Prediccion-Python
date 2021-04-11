@@ -1,24 +1,55 @@
+#importamos las librerias necesarias
+import pandas as pd
 
+data = pd.read_csv("DataSet_Prediccion.csv")
 
 # Borrado de registros inecesarias
-# borramos todos los registros nulos y las filas de la columna total
-# All other diseases, All other external causes, All causes
+# print(data.isnull().sum()) Comprobar datos nulos
 
 # Borrado de las columnas inecesarias
 # year
 # area
-# record tipe
+# record type
 # reliability
 # source year
 # value footnotes
+data.drop(["Year", "Area","Record Type","Reliability","Source Year","Value Footnotes"], axis=1, inplace=True)
+
+# borramos todos los registros nulos y las filas de la columna total
+# All other diseases, All other external causes, All causes, Unknown
+def EliminarFila(fila, columna, data):
+    mantener = data.loc[:, columna] != fila
+    return data.loc[mantener]
+
+
+data = EliminarFila("Total", "Age", data)
+data = EliminarFila("Unknown", "Age", data)
+data = EliminarFila("All other diseases", "Cause of death (WHO)", data)
+data = EliminarFila("All other external causes", "Cause of death (WHO)", data)
+data = EliminarFila("All causes", "Cause of death (WHO)", data)
+data = EliminarFila("Unknown", "Sex", data)
 
 # Cambiar las cabeceras por su traduccion al español
 
+cabecera = ["Pais", "Sexo", "Edad", "Causa de Muerte", "Cantidad"]
+data.columns = cabecera
+
 # convercion de datos de string a int
+
+def ConversionCategorizacion(Nombre, Columna, data):
+    for i in range (len(Nombre)):
+        data[Columna] = data[Columna].replace({Nombre[i]:i})
+    return data
+
 # Pais Argentina 0, Chile 1, Brazil 2, Mexico 3, Panama 4
+data = ConversionCategorizacion(["Argentina", "Chile", "Brazil", "Mexico", "Panama"], "Pais", data)
+
 # Sexo male 0, female 1
+data = ConversionCategorizacion(["Male", "Female"], "Sexo", data)
+
 # Causa de muerte
-""" Certain infectious and parasitic diseases
+""" 
+Certain infectious and parasitic diseases
 Intestinal infectious diseases
 Tuberculosis
 Tetanus
