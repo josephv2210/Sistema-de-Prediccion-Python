@@ -17,7 +17,7 @@
 # Pais Argentina 0, Chile 1, Brazil 2, Mexico 3, Panama 4
 # Sexo male 0, female 1
 # Causa de muerte
-# 
+# -
 
 # Generar rangos de edad
 # 0 0-9,1 10-19,2 20-29, 3 30-39,4 40-49,5 50-59,6 60-69, 7 70-79, 8 80-89, 9 90-mas
