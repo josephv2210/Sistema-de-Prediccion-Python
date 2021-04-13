@@ -140,4 +140,5 @@ data = ConversionCategorizacion(mat, "Edad", data, flag=False)
 data.to_csv("Data.csv")
 
 print(data)
-#coment22222
+
+#arreglar los indices de la data
