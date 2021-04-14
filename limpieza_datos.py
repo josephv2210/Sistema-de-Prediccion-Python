@@ -1,10 +1,14 @@
 #importamos las librerias necesarias
 import pandas as pd
 
+#cargamos el dataset en la variable data
 data = pd.read_csv("DataSet_Prediccion.csv")
 
-# Borrado de registros inecesarias
-# print(data.isnull().sum()) Comprobar datos nulos
+# se comprueba si existen datos nulos
+""" for i in data.isnull().sum():
+        if i > 0:
+            raise Exception("HAY DATOS NULOS EN EL DATAFRAME") """
+
 
 # Borrado de las columnas inecesarias
 # year
