@@ -45,7 +45,7 @@ def ConversionCategorizacion(Nombre, Columna, data, flag=True):
     else:
         for i in range (len(Nombre)):
             for a in Nombre[i]:
-                print(a,i)
+                # print(a,i)
                 data[Columna] = data[Columna].replace({a:str(i)})
     return data
 # Pais Argentina 0, Chile 1, Brazil 2, Mexico 3, Panama 4
@@ -54,7 +54,6 @@ data = ConversionCategorizacion(["Argentina", "Chile", "Brazil", "Mexico", "Pana
 # Sexo male 0, female 1
 data = ConversionCategorizacion(["Male", "Female"], "Sexo", data)
 
-print(data)
 # Causa de muerte
 """ 
 0 Certain infectious and parasitic diseases
@@ -137,8 +136,13 @@ mat = [["0", "1", "2", "3", "4", "5 - 9"], ["10 - 14", "15 - 19"],
         ["90 - 94", "95 +"]]
 
 data = ConversionCategorizacion(mat, "Edad", data, flag=False)
+
+
+# Agrupacion de datos por edades
+
+data = data.groupby(['Pais','Sexo', 'Edad', 'Causa de Muerte'], as_index=False)['Cantidad'].sum()
+
+
 data.to_csv("Data.csv")
 
-print(data)
 
-#arreglar los indices de la data
