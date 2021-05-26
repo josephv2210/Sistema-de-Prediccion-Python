@@ -3,29 +3,31 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from pandas.core.frame import DataFrame
+from sklearn.model_selection import train_test_split
 
 # Librerias de los distintos algoritmos
-from sklearn.model_selection import train_test_split
 from sklearn import svm
-from sklearn import linear_model
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.datasets import make_classification
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.naive_bayes import GaussianNB
 
 # Importamos el dataset con los datos arreglados,
 
-dataset = pd.read_csv("Sistema de Prediccion/Data.csv")
+dataset = pd.read_csv("Data.csv")
 
-x_train = dataset.iloc[:, 4:5].values 
-y_train = dataset.iloc[:, 5].values 
-# x_test = dataset.iloc[110:210, 4:5].values 
-# y_test = dataset.iloc[110:210, 5].values# 
+x = dataset.iloc[5500:6099, 4:5].values 
+y = dataset.iloc[5500:6099, 5].values 
+
+# is_0 = dataset.loc[:, 'Causa de Muerte'] == 0
+# for i in range(is_0):
+#     if 
+# x = dataset.loc[:, is_0]
+# y = dataset.iloc[:, 5].values 
+
+# print(x)
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3)
+
 
 x_train = x_train.astype(int)
 y_train = y_train.astype(int)
-# x_test = x_test.astype(int)
-# y_test = y_test.astype(int)
 
 # SVM
 
@@ -40,7 +42,8 @@ plt.ylabel("Valor final")
 plt.show()
 
 # print(f"precision de Support Vector Machines:\n {round(clasificador_lineal.score(np.array(y_test).reshape(-1,1), np.array(y_predic_SVM).reshape(-1,1)) * 100, 2)}")
-print(clasificador_lineal.predict(y_train))
+y_predic = clasificador_lineal.predict(x_train)
+print(y_predic[:100])
 
 
 
