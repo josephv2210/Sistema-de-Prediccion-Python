@@ -8,23 +8,18 @@ from sklearn.model_selection import train_test_split
 # Librerias de los distintos algoritmos
 from sklearn.model_selection import train_test_split
 from sklearn import svm
-from sklearn import linear_model
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.datasets import make_classification
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.naive_bayes import GaussianNB
 
 # Importamos el dataset con los datos arreglados,
 
 dataset = pd.read_csv("Data.csv")
  
-
+# Variables vacias en donde se van a almaccenar los datos
 is_T = []
 dataS = []
 X_T = []
 Y_T = []
 
-
+# Se dividen los datos por enfermedad y se guardan los datos respectivos
 for i in range(63):
     is_T.append(dataset.loc[:, 'Causa de Muerte'] == i)
     dataS.append(dataset.loc[is_T[i]])
@@ -32,8 +27,7 @@ for i in range(63):
     X_T.append(neoData.iloc[:, 3:4].values)
     Y_T.append(neoData.iloc[:, 5].values)
 
-# -------------------------------------------------------------------------------------------------------------------
-
+# -----------------------------------------------Algoritmo SVM-------------------------------------------------------
 def Pred(x, y, enfermedad):
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3)
 
@@ -57,11 +51,11 @@ def Pred(x, y, enfermedad):
     y_predic = clasificador_lineal.predict(x_train)
     print("Enfermedad Numero ", enfermedad, "\n", y_predic[:100])
 
-prin=26
-Pred(X_T[prin], Y_T[prin], prin)
+# ----------------------- Generar la prediccion para una enfermedad correspondiente -------------------------------
+# prin=26
+# Pred(X_T[prin], Y_T[prin], prin)
 
-print(X_T[prin])
-print(Y_T[prin])
+# -------------------------- Generar la prediccion para todas las enfermedades ------------------------------------
 for i in range(63):
     Pred(X_T[i], Y_T[i], i)
 
