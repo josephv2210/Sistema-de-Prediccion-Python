@@ -49,10 +49,10 @@ def Pred(x, y, enfermedad):
 
     # Prediccion
     y_predic = clasificador_lineal.predict(x_train)
-    print("Enfermedad Numero ", enfermedad, "\n", y_predic[:100])
+    print("Enfermedad Numero ", enfermedad, "\n", y_predic[:5])
 
 # ----------------------- Generar la prediccion para una enfermedad correspondiente -------------------------------
-# prin=26
+# prin=41
 # Pred(X_T[prin], Y_T[prin], prin)
 
 # -------------------------- Generar la prediccion para todas las enfermedades ------------------------------------
